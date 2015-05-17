@@ -51,7 +51,7 @@
 				<key>displayName</key>
 				<string>Environment</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_environment</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -113,7 +113,7 @@
 				<key>displayName</key>
 				<string>Penguin</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_penguin</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>

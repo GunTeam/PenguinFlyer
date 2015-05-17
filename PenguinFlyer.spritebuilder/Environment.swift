@@ -10,7 +10,38 @@ import Foundation
 
 class Environment:CCNode{
     
+    var objectDistance:Float = 30
+    var gameObjects:NSMutableArray?
+    var gameSpeed:Float?
+    
+    convenience init (objectDistance:Float){
+        self.init()
+        self.objectDistance = objectDistance
+    }
+    
+    func addGameObject(){
+        
+    }
     
     
+    func addGlacier(){
+        
+    }
+    
+    func addPolarBear(){
+        
+    }
+    
+    func addWalrus(){
+        
+    }
+    
+    func addRamp(){
+        
+    }
+    
+    func addFish(){
+        
+    }
     
 }
