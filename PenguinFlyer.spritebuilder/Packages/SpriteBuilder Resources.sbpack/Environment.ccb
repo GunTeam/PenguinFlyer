@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>6</integer>
+	<integer>2</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -18,7 +18,7 @@
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>docDimensionsType</key>
-	<integer>0</integer>
+	<integer>2</integer>
 	<key>fileType</key>
 	<string>CocosBuilder</string>
 	<key>fileVersion</key>
@@ -41,15 +41,15 @@
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>4</integer>
+				<integer>1</integer>
 				<key>baseClass</key>
-				<string>CCBFile</string>
+				<string>CCNodeGradient</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Environment</string>
+				<string>CCNodeGradient</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -80,64 +80,26 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>scale</string>
+						<string>contentSize</string>
 						<key>type</key>
-						<string>ScaleLock</string>
+						<string>Size</string>
 						<key>value</key>
 						<array>
 							<real>1</real>
 							<real>1</real>
-							<false/>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>ccbFile</string>
+						<string>anchorPoint</string>
 						<key>type</key>
-						<string>CCBFile</string>
-						<key>value</key>
-						<string>Environment.ccb</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>UUID</key>
-				<integer>5</integer>
-				<key>baseClass</key>
-				<string>CCBFile</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>Penguin</string>
-				<key>memberVarAssignmentName</key>
-				<string></string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>name</string>
-						<key>type</key>
-						<string>StringSimple</string>
-						<key>value</key>
-						<string></string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
+						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>230.08641052246094</real>
-							<real>141.33758544921875</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<real>0.5</real>
+							<real>0.5</real>
 						</array>
 					</dict>
 					<dict>
@@ -155,11 +117,40 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>ccbFile</string>
+						<string>startColor</string>
 						<key>type</key>
-						<string>CCBFile</string>
+						<string>Color3</string>
 						<key>value</key>
-						<string>Penguin.ccb</string>
+						<array>
+							<real>0.031372550874948502</real>
+							<real>0.46274510025978088</real>
+							<real>0.0</real>
+							<real>1</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>endColor</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>0.9686274528503418</real>
+							<real>0.65098041296005249</real>
+							<real>0.87058824300765991</real>
+							<real>1</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>vector</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.0</real>
+							<real>-1</real>
+						</array>
 					</dict>
 				</array>
 				<key>selected</key>
@@ -167,7 +158,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>GameScene</string>
+		<string>Environment</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -206,7 +197,7 @@
 				<key>value</key>
 				<array>
 					<real>1</real>
-					<real>1</real>
+					<real>3.5</real>
 					<integer>2</integer>
 					<integer>2</integer>
 				</array>
@@ -218,8 +209,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>0.5</real>
+					<real>0.5</real>
 				</array>
 			</dict>
 			<dict>
@@ -247,9 +238,9 @@
 			<key>ext</key>
 			<string>phone</string>
 			<key>height</key>
-			<integer>320</integer>
+			<integer>384</integer>
 			<key>name</key>
-			<string>Phone Landscape</string>
+			<string>Phone</string>
 			<key>scale</key>
 			<real>1</real>
 			<key>width</key>
@@ -263,25 +254,11 @@
 			<key>height</key>
 			<integer>384</integer>
 			<key>name</key>
-			<string>Tablet Landscape</string>
+			<string>Tablet</string>
 			<key>scale</key>
 			<real>2</real>
 			<key>width</key>
-			<integer>512</integer>
-		</dict>
-		<dict>
-			<key>centeredOrigin</key>
-			<false/>
-			<key>ext</key>
-			<string>phone</string>
-			<key>height</key>
-			<integer>320</integer>
-			<key>name</key>
-			<string>Phone Landscape (short)</string>
-			<key>scale</key>
-			<real>1</real>
-			<key>width</key>
-			<integer>480</integer>
+			<integer>568</integer>
 		</dict>
 	</array>
 	<key>sequences</key>
@@ -324,7 +301,7 @@
 		</dict>
 	</array>
 	<key>stageBorder</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>stageColor</key>
 	<integer>0</integer>
 </dict>

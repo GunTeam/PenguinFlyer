@@ -95,6 +95,7 @@
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		CC72BA031B08356C003DAEB1 /* Penguin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72BA021B08356C003DAEB1 /* Penguin.swift */; };
 		CC72BA051B0835A7003DAEB1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72BA041B0835A7003DAEB1 /* GameScene.swift */; };
+		CC72BA071B0843FB003DAEB1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72BA061B0843FB003DAEB1 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,7 @@
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		CC72BA021B08356C003DAEB1 /* Penguin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Penguin.swift; sourceTree = "<group>"; };
 		CC72BA041B0835A7003DAEB1 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		CC72BA061B0843FB003DAEB1 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -553,6 +555,7 @@
 		CC72BA001B08353F003DAEB1 /* Environments */ = {
 			isa = PBXGroup;
 			children = (
+				CC72BA061B0843FB003DAEB1 /* Environment.swift */,
 			);
 			name = Environments;
 			sourceTree = "<group>";
@@ -632,7 +635,7 @@
 		B77F1B2617B978D7009739AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
 					7A4035FE19DDEE84007B6E8F = {
@@ -843,6 +846,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC72BA051B0835A7003DAEB1 /* GameScene.swift in Sources */,
+				CC72BA071B0843FB003DAEB1 /* Environment.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				CC72BA031B08356C003DAEB1 /* Penguin.swift in Sources */,
@@ -1073,6 +1077,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
@@ -1106,6 +1111,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
