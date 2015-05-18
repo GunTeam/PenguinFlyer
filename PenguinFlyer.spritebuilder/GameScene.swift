@@ -25,21 +25,16 @@ class GameScene:CCNode{
     }
     
     override func onEnter() {
+        //set bounds for environment height
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-    
         let environmentHeight = _environment.contentSizeInPoints.height
-        
         let startY = _environment.positionInPoints.y
-        
         let maxMove = environmentHeight/2 - screenHeight
-        maxHeight = (startY - maxMove) - startY
+        maxHeight = (startY - maxMove) - startY //offset by original position
         minHeight = (startY + maxMove) + startY
-        
-//        _environment.positionInPoints = CGPointMake(_environment.positionInPoints.x, maxHeight!)
-    
-        NSLog("max height = %f , min height = %f , max move = %f , screen height = %f , start y = %f , environment height = %f", Float(maxHeight!),Float(minHeight!),maxMove,screenHeight,startY,environmentHeight)
+
         super.onEnter()
     }
     
