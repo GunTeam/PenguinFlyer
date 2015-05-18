@@ -11,9 +11,9 @@ import Foundation
 class Penguin: CCSprite {
     
     var height:Float = 0
-    var velocity:Float = 0
+    var velocity:CGFloat = 0
     
-    convenience init(height:Float,velocity:Float){
+    convenience init(height:Float,velocity:CGFloat){
         self.init()
         self.height = height
         self.velocity = velocity
