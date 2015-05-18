@@ -14,6 +14,7 @@ class GameScene:CCNode{
     var _environment:CCNode!
     var _penguin:Penguin!
     var _physicsNode:CCPhysicsNode!
+    var _followerNode:CCNode!
     
     var maxHeight:CGFloat?
     var minHeight:CGFloat?
@@ -43,13 +44,10 @@ class GameScene:CCNode{
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        
+        NSLog("touch began")
+        _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
     }
-    
-    func TogglePenguinSpeed(){
-        _penguin.velocity = -_penguin.velocity
-    }
-    
+
     override func update(delta: CCTime) {
         
     }
