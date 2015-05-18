@@ -20,20 +20,24 @@ class GameScene:CCNode{
     
     func didLoadFromCCB(){
         self.userInteractionEnabled = true
-        _penguin.velocity = 5
+        _penguin.velocity = 1
+        _physicsNode.debugDraw = true
+        
+        //for debug purposes
+        _penguin.physicsBody.velocity = CGPointMake(0, -100)
 
     }
     
     override func onEnter() {
-        //set bounds for environment height
+//        set bounds for environment height
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
-        let maxMove = environmentHeight/2 - screenHeight
-        maxHeight = (startY - maxMove) - startY //offset by original position
-        minHeight = (startY + maxMove) + startY
+        
+        var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth, screenHeight*3.5))
+        runAction(follow)
 
         super.onEnter()
     }
@@ -47,19 +51,6 @@ class GameScene:CCNode{
     }
     
     override func update(delta: CCTime) {
-        updateEnvironment()
-        
-    }
-    
-    func updateEnvironment(){
-        var nextEnvironmentPosition = _environment.positionInPoints.y - _penguin.velocity
-        if nextEnvironmentPosition < maxHeight {
-            _environment.positionInPoints = CGPointMake(_environment.positionInPoints.x, maxHeight!)
-        } else if nextEnvironmentPosition > minHeight {
-            _environment.positionInPoints = CGPointMake(_environment.positionInPoints.x, minHeight!)
-        } else{
-            _environment.positionInPoints = CGPointMake(_environment.positionInPoints.x, _environment.positionInPoints.y - _penguin.velocity)
-        }
         
     }
 
