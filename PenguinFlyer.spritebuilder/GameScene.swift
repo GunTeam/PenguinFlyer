@@ -9,9 +9,9 @@
 import Foundation
 
 
-class GameScene:CCNode{
+class GameScene:CCNode,TouchInteractionDelegate{
     
-    var _environment:CCNode!
+    var _environment:Environment!
     var _penguin:Penguin!
     var _physicsNode:CCPhysicsNode!
     var _followerNode:CCNode!
@@ -23,6 +23,7 @@ class GameScene:CCNode{
         self.userInteractionEnabled = true
         _penguin.velocity = 1
         _physicsNode.debugDraw = true
+        _environment.delegate = self
         
         //for debug purposes
         _penguin.physicsBody.velocity = CGPointMake(0, -100)
@@ -47,10 +48,15 @@ class GameScene:CCNode{
         NSLog("touch began")
         _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
     }
-
-    override func update(delta: CCTime) {
-        
+    
+    func fly() {
+        NSLog("FLY!")
     }
-
+    func tap() {
+        NSLog("TAP!")
+    }
+    func hold() {
+        NSLog("HOLD!")
+    }
     
 }
