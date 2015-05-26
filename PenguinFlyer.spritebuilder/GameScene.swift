@@ -23,6 +23,7 @@ class GameScene:CCNode,TouchInteractionDelegate{
         self.userInteractionEnabled = true
         _penguin.velocity = 1
         _physicsNode.debugDraw = true
+        _environment.userInteractionEnabled = true
         _environment.delegate = self
         
         //for debug purposes
@@ -44,13 +45,9 @@ class GameScene:CCNode,TouchInteractionDelegate{
         super.onEnter()
     }
     
-    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        NSLog("touch began")
-        _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
-    }
-    
     func fly() {
         NSLog("FLY!")
+        _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
     }
     func tap() {
         NSLog("TAP!")
