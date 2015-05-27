@@ -24,6 +24,7 @@ class GameScene:CCNode,TouchInteractionDelegate{
         _penguin.velocity = 1
         _physicsNode.debugDraw = true
         _environment.delegate = self
+        _environment.userInteractionEnabled = true
         
         //for debug purposes
         _penguin.physicsBody.velocity = CGPointMake(0, -100)
@@ -38,19 +39,30 @@ class GameScene:CCNode,TouchInteractionDelegate{
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
         
+        maxHeight = startY + environmentHeight/2.25
+        minHeight = startY - environmentHeight/2.25
+
+        
         var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth, screenHeight*3.5))
         runAction(follow)
 
         super.onEnter()
     }
-    
-    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        NSLog("touch began")
-        _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
+
+    override func update(delta: CCTime) {
+        
+        NSLog("Penguin Position = %f", _penguin.position.y)
+        
+        if (_penguin.position.y < minHeight && _penguin.physicsBody.velocity.y < 0) || (_penguin.position.y > maxHeight && _penguin.physicsBody.velocity.y > 0) {
+            _penguin.physicsBody.velocity = CGPointMake(0, 0)
+        }
+        
     }
     
     func fly() {
         NSLog("FLY!")
+        _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
+
     }
     func tap() {
         NSLog("TAP!")
