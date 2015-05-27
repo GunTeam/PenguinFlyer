@@ -11,7 +11,6 @@ import Foundation
 class Environment:CCNode{
     
     var objectDistance:Float = 30
-    var gameObjects:NSMutableArray?
     var gameSpeed:Float?
     var delegate:TouchInteractionDelegate?
     

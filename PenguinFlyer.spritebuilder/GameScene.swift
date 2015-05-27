@@ -11,8 +11,6 @@ import Foundation
 
 class GameScene:CCNode,TouchInteractionDelegate{
     
-    var screenWidth:CGFloat?
-    var screenHeight:CGFloat?
     var _environment:Environment!
     var _penguin:Penguin!
     var _physicsNode:CCPhysicsNode!
@@ -20,6 +18,10 @@ class GameScene:CCNode,TouchInteractionDelegate{
     
     var maxHeight:CGFloat?
     var minHeight:CGFloat?
+    var screenWidth:CGFloat?
+    var screenHeight:CGFloat?
+    var gameObjects:[CCNode] = []
+
     
     func didLoadFromCCB(){
         self.userInteractionEnabled = true
@@ -48,10 +50,8 @@ class GameScene:CCNode,TouchInteractionDelegate{
         var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth!, screenHeight!*3.5))
         runAction(follow)
         
-        
         var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("addGlacier"), userInfo: nil, repeats: false)
-
-        
+        var timer2 = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("cleanupObjects"), userInfo: nil, repeats: true)
 
         super.onEnter()
     }
@@ -77,11 +77,20 @@ class GameScene:CCNode,TouchInteractionDelegate{
         
     }
     
+    func cleanupObjects(){
+        for object in gameObjects{
+            if object.position.x < -object.contentSizeInPoints.width/2{
+                object.removeFromParent()
+            }
+        }
+    }
+    
     func addGlacier(){
         var ice = CCBReader.load("ProtoIce")
         ice.physicsBody.velocity = CGPointMake(-100, 0)
-        ice.position = CGPointMake(screenWidth! + ice.contentSizeInPoints.width/2, 0)
+        ice.position = CGPointMake(screenWidth! + ice.contentSizeInPoints.width/2, screenHeight!/4.8)
         _physicsNode.addChild(ice)
+        gameObjects.append(ice)
     }
     func addPolarBear(){
         
