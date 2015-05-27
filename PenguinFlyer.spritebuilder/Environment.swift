@@ -35,30 +35,7 @@ class Environment:CCNode{
         delegate?.tap()
     }
     
-    func addGameObject(){
-        
-    }
-    
-    
-    func addGlacier(){
-        
-    }
-    
-    func addPolarBear(){
-        
-    }
-    
-    func addWalrus(){
-        
-    }
-    
-    func addRamp(){
-        
-    }
-    
-    func addFish(){
-        
-    }
+
     
 }
 

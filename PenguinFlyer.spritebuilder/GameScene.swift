@@ -11,11 +11,12 @@ import Foundation
 
 class GameScene:CCNode,TouchInteractionDelegate{
     
+    var screenWidth:CGFloat?
+    var screenHeight:CGFloat?
     var _environment:Environment!
     var _penguin:Penguin!
     var _physicsNode:CCPhysicsNode!
     var _followerNode:CCNode!
-    var _ice:CCSprite!
     
     var maxHeight:CGFloat?
     var minHeight:CGFloat?
@@ -36,27 +37,26 @@ class GameScene:CCNode,TouchInteractionDelegate{
     override func onEnter() {
 //        set bounds for environment height
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
+        screenWidth = screenSize.width
+        screenHeight = screenSize.height
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
-        
-        _ice.physicsBody.velocity = CGPointMake(-100, 0)
-        
+                
         maxHeight = startY + environmentHeight/2.25
         minHeight = startY - environmentHeight/2.25
+        
+        var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth!, screenHeight!*3.5))
+        runAction(follow)
+        
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("addGlacier"), userInfo: nil, repeats: false)
 
         
-        var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth, screenHeight*3.5))
-        runAction(follow)
 
         super.onEnter()
     }
 
-    override func update(delta: CCTime) {
-        
-        NSLog("Penguin Position = %f", _penguin.position.y)
-        
+    override func update(delta: CCTime) {        
         if (_penguin.position.y < minHeight && _penguin.physicsBody.velocity.y < 0) || (_penguin.position.y > maxHeight && _penguin.physicsBody.velocity.y > 0) {
             _penguin.physicsBody.velocity = CGPointMake(0, 0)
         }
@@ -71,6 +71,29 @@ class GameScene:CCNode,TouchInteractionDelegate{
     }
     func hold() {
         NSLog("HOLD!")
+    }
+    
+    func addGameObject(){
+        
+    }
+    
+    func addGlacier(){
+        var ice = CCBReader.load("ProtoIce")
+        ice.physicsBody.velocity = CGPointMake(-100, 0)
+        ice.position = CGPointMake(screenWidth! + ice.contentSizeInPoints.width/2, 0)
+        _physicsNode.addChild(ice)
+    }
+    func addPolarBear(){
+        
+    }
+    func addWalrus(){
+        
+    }
+    func addRamp(){
+        
+    }
+    func addFish(){
+        
     }
     
 }
