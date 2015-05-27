@@ -15,6 +15,7 @@ class GameScene:CCNode,TouchInteractionDelegate{
     var _penguin:Penguin!
     var _physicsNode:CCPhysicsNode!
     var _followerNode:CCNode!
+    var _ice:CCSprite!
     
     var maxHeight:CGFloat?
     var minHeight:CGFloat?
@@ -39,10 +40,8 @@ class GameScene:CCNode,TouchInteractionDelegate{
         let screenHeight = screenSize.height
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
-        minHeight = _penguin.position.y - environmentHeight / (2.25)
-        maxHeight = _penguin.position.y + environmentHeight / (2.25)
         
-        NSLog("Min height = %f", minHeight!)
+        _ice.physicsBody.velocity = CGPointMake(-100, 0)
         
         maxHeight = startY + environmentHeight/2.25
         minHeight = startY - environmentHeight/2.25
