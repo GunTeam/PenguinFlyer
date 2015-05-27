@@ -38,11 +38,22 @@ class GameScene:CCNode,TouchInteractionDelegate{
         let screenHeight = screenSize.height
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
+        minHeight = _penguin.position.y - environmentHeight / (2.25)
+        maxHeight = _penguin.position.y + environmentHeight / (2.25)
+        
+        NSLog("Min height = %f", minHeight!)
         
         var follow = CCActionFollow(target: _penguin, worldBoundary: CGRectMake(0, startY - environmentHeight/2, screenWidth, screenHeight*3.5))
         runAction(follow)
 
         super.onEnter()
+    }
+    
+    override func update(delta: CCTime) {
+        NSLog("Min height = %f", _penguin.position.y)
+        if _penguin.position.y < minHeight || _penguin.position.y > maxHeight{
+            _penguin.physicsBody.velocity = CGPointMake( _penguin.physicsBody.velocity.x, _penguin.physicsBody.velocity.y/1.1)
+        }
     }
     
     func fly() {
