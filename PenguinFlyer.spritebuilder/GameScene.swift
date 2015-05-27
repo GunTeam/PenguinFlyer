@@ -23,6 +23,7 @@ class GameScene:CCNode,TouchInteractionDelegate{
         self.userInteractionEnabled = true
         _penguin.velocity = 1
         _physicsNode.debugDraw = true
+        _environment.userInteractionEnabled = true
         _environment.delegate = self
         _environment.userInteractionEnabled = true
         
@@ -38,6 +39,10 @@ class GameScene:CCNode,TouchInteractionDelegate{
         let screenHeight = screenSize.height
         let environmentHeight = _environment.contentSizeInPoints.height
         let startY = _environment.positionInPoints.y
+        minHeight = _penguin.position.y - environmentHeight / (2.25)
+        maxHeight = _penguin.position.y + environmentHeight / (2.25)
+        
+        NSLog("Min height = %f", minHeight!)
         
         maxHeight = startY + environmentHeight/2.25
         minHeight = startY - environmentHeight/2.25
@@ -56,13 +61,11 @@ class GameScene:CCNode,TouchInteractionDelegate{
         if (_penguin.position.y < minHeight && _penguin.physicsBody.velocity.y < 0) || (_penguin.position.y > maxHeight && _penguin.physicsBody.velocity.y > 0) {
             _penguin.physicsBody.velocity = CGPointMake(0, 0)
         }
-        
     }
     
     func fly() {
         NSLog("FLY!")
         _penguin.physicsBody.velocity = CGPointMake(0, -_penguin.physicsBody.velocity.y)
-
     }
     func tap() {
         NSLog("TAP!")

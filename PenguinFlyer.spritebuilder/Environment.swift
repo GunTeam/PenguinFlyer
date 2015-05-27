@@ -18,7 +18,6 @@ class Environment:CCNode{
     convenience init (objectDistance:Float){
         self.init()
         self.objectDistance = objectDistance
-        self.userInteractionEnabled = true
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
